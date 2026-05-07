@@ -3,7 +3,7 @@ Title: Permanent Archiving of MCMC Analysis Metadata on Arweave
 Version: 0.1.0
 Authors@R: 
     person("Dohoon", "Kim", , "dkim@promptgenix.org", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-HERE"))
+           comment = c(ORCID = "0000-0002-5794-6222"))
 Description: Bridges Bayesian MCMC analysis in R with Arweave decentralized 
     storage for permanent, tamper-proof archiving of analysis metadata. 
     Extracts convergence diagnostics, posterior summaries, and model 
