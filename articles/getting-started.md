@@ -32,7 +32,7 @@ print(meta)
 #> ── BioAnchor Metadata ──────────────────────────────────────────────────────────
 #> ℹ Model: eight_schools_demo
 #> ℹ Backend: posterior
-#> ℹ Timestamp: 2026-05-07T16:17:50+0000
+#> ℹ Timestamp: 2026-05-07T17:06:48+0000
 #> ✔ Max Rhat: 1.0235 (converged)
 #> ℹ Parameters: 10
 ```
@@ -51,7 +51,7 @@ result <- archive_mcmc(draws, model_name = "eight_schools_demo")
 #> ── BioAnchor Metadata ──────────────────────────────────────────────────────────
 #> ℹ Model: eight_schools_demo
 #> ℹ Backend: posterior
-#> ℹ Timestamp: 2026-05-07T16:17:50+0000
+#> ℹ Timestamp: 2026-05-07T17:06:49+0000
 #> ✔ Max Rhat: 1.0235 (converged)
 #> ℹ Parameters: 10
 #> ℹ No wallet provided, using mock uploader.
