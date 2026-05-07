@@ -1,0 +1,35 @@
+Package: bioanchor
+Title: Permanent Archiving of MCMC Analysis Metadata on Arweave
+Version: 0.1.0
+Authors@R: 
+    person("Dohoon", "Kim", , "dkim@promptgenix.org", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-HERE"))
+Description: Bridges Bayesian MCMC analysis in R with Arweave decentralized 
+    storage for permanent, tamper-proof archiving of analysis metadata. 
+    Extracts convergence diagnostics, posterior summaries, and model 
+    specifications from 'Stan', 'brms', and 'coda' objects, then uploads 
+    them as structured JSON to the Arweave permaweb.
+License: MIT + file LICENSE
+URL: https://github.com/kdh4win4/bioanchor-r
+BugReports: https://github.com/kdh4win4/bioanchor-r/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends:
+    R (>= 4.1.0)
+Imports:
+    httr2 (>= 1.0.0),
+    jsonlite (>= 1.8.0),
+    posterior (>= 1.5.0),
+    cli (>= 3.6.0),
+    rlang (>= 1.1.0)
+Suggests:
+    testthat (>= 3.0.0),
+    rstan,
+    brms,
+    coda,
+    knitr,
+    rmarkdown,
+    withr
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.0.0

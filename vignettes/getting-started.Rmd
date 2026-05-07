@@ -1,0 +1,74 @@
+---
+title: "Getting Started with BioAnchor"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with BioAnchor}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Overview
+
+`bioanchor` lets you permanently archive MCMC analysis metadata on the 
+[Arweave](https://arweave.org) permaweb. It extracts convergence diagnostics,
+posterior summaries, and model specifications from fitted model objects, then
+uploads them as structured JSON.
+
+## Basic Workflow
+
+```{r example}
+library(bioanchor)
+library(posterior)
+
+# Use the built-in eight schools example
+draws <- example_draws("eight_schools")
+
+# Extract metadata
+meta <- extract_metadata(draws, model_name = "eight_schools_demo")
+print(meta)
+```
+
+## Archiving with Mock Uploader
+
+For testing (no Arweave wallet required):
+
+```{r mock}
+result <- archive_mcmc(draws, model_name = "eight_schools_demo")
+
+# Inspect the result
+result$upload$tx_id
+result$upload$payload_size
+```
+
+## Adding Custom Metadata
+
+```{r extra}
+meta <- extract_metadata(draws,
+  model_name = "eight_schools",
+  extra = list(
+    author = "Dohoon Kim",
+    affiliation = "Promptgenix LLC",
+    project = "Hierarchical model comparison",
+    doi = "10.5281/zenodo.19709077"
+  )
+)
+```
+
+## Real Arweave Upload
+
+When you have an Arweave JWK wallet:
+
+```{r real-upload, eval = FALSE}
+result <- archive_mcmc(draws,
+  model_name = "eight_schools",
+  jwk_path = "~/.arweave/wallet.json",
+  extra = list(author = "Your Name")
+)
+
+# Access the permanent URL
+browseURL(result$upload$url)
+```
